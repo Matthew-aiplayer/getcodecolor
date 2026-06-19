@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ─── SEO Meta ─────────────────────────────── -->
+  <title>Get Color Code - 免費線上圖片取色工具 | HEX RGB HSL 顏色代碼擷取</title>
+  <meta name="description" content="Get Color Code 是一款免費的線上圖片取色工具。上傳圖片、點擊取色，即時獲取 HEX、RGB、HSL 顏色代碼。支援拖曳上傳、放大鏡精準取色、顏色歷史記錄，所有處理都在瀏覽器本地完成，保護您的隱私。">
+  <meta name="keywords" content="圖片取色, 顏色代碼, HEX顏色, RGB顏色, HSL顏色, 色彩擷取, color picker, 線上取色工具, 顏色選擇器, Get Color Code, 圖片色彩分析, 網頁設計配色">
+  <meta name="author" content="Get Color Code">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#6366f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121214" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://getcolorcode.com/">
+
+  <!-- ─── Open Graph ───────────────────────────── -->
+  <meta property="og:title" content="Get Color Code - 免費線上圖片取色工具">
+  <meta property="og:description" content="上傳圖片、點擊取色，即時獲取 HEX、RGB、HSL 顏色代碼。支援拖曳上傳與放大鏡精準取色。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getcolorcode.com/">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:site_name" content="Get Color Code">
+
+  <!-- ─── Twitter Card ─────────────────────────── -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Get Color Code - 免費線上圖片取色工具">
+  <meta name="twitter:description" content="上傳圖片、點擊取色，即時獲取 HEX、RGB、HSL 顏色代碼。隱私友善，所有處理在瀏覽器本機完成。">
+
+  <!-- ─── Structured Data (JSON-LD) ────────────── -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Get Color Code","url":"https://getcolorcode.com/","description":"免費線上圖片取色工具，上傳圖片、點擊取色，即時獲取 HEX、RGB、HSL 顏色代碼。","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"TWD"},"author":{"@type":"Organization","name":"Get Color Code"},"browserRequirements":"Requires JavaScript"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"上傳的圖片會被上傳到伺服器嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。Get Color Code 的所有圖片處理都在您的瀏覽器本地端完成，圖片不會被上傳到任何伺服器，完全保障您的隱私安全。"}},{"@type":"Question","name":"支援哪些圖片格式？","acceptedAnswer":{"@type":"Answer","text":"支援 JPG、PNG、WebP、GIF、SVG 等常見圖片格式。您也可以直接從剪貼簿貼上圖片（Ctrl+V / Cmd+V）。"}},{"@type":"Question","name":"可以同時看到 HEX、RGB、HSL 三種格式嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。點擊圖片後，右側面板會同時顯示 HEX（如 #FF6B6B）、RGB（如 rgb(255, 107, 107)）和 HSL（如 hsl(0, 100%, 71%)）三種顏色格式，點擊任一格式即可一鍵複製到剪貼簿。"}},{"@type":"Question","name":"可以儲存多個取樣的顏色嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。每次點擊圖片取色時，顏色會自動儲存到右側的「顏色歷史」面板中，您可以隨時點擊歷史顏色來回顧，也可以一鍵清除全部記錄。"}}]}</script>
+
+  <!-- ─── Stylesheet ───────────────────────────── -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- ─── Favicon (inline SVG) ─────────────────── -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%236366f1'/><path d='M8 20c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4s-1.8 4-4 4h-8c-2.2 0-4-1.8-4-4z' fill='white' opacity='0.9'/><circle cx='10' cy='12' r='2' fill='white'/><circle cx='16' cy='10' r='2' fill='white' opacity='0.8'/><circle cx='22' cy='12' r='2' fill='white' opacity='0.7'/></svg>">
+</head>
+<body>
+
+  <!-- ─── Theme Toggle ──────────────────────── -->
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="切換暗黑模式">
+    <svg id="sunIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg id="moonIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <header class="header">
+    <div class="logo">
+      <div class="logo-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h1>Get Color Code</h1>
+    </div>
+    <p class="subtitle">上傳圖片，點擊取色，即時獲取 HEX / RGB / HSL 顏色代碼</p>
+  </header>
+
+  <!-- ============================================
+       MAIN TOOL
+       ============================================ -->
+  <main class="main-container">
+    <!-- Image Section -->
+    <section class="image-section" aria-label="圖片取色區域">
+      <div class="image-card">
+        <div class="image-wrapper" id="imageWrapper">
+          <!-- Upload Overlay -->
+          <div class="upload-overlay" id="uploadOverlay">
+            <div class="upload-icon-wrapper" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <span class="upload-text">拖曳圖片到此處</span>
+            <span class="upload-hint">或</span>
+            <button class="upload-btn" id="uploadBtn" type="button">選擇圖片</button>
+            <span class="upload-hint" style="font-size: 11px;">支援 JPG, PNG, WebP, GIF, SVG · 也可 Ctrl+V 貼上</span>
+          </div>
+          <input type="file" id="fileInput" accept="image/*">
+
+          <!-- Image -->
+          <img id="mainImage" style="display: none;" alt="上傳的圖片，點擊即可取色">
+
+          <!-- Magnifier -->
+          <div class="magnifier" id="magnifier" aria-hidden="true">
+            <div class="magnifier-hl"></div>
+            <div class="magnifier-vl"></div>
+            <div class="magnifier-center"></div>
+          </div>
+
+          <!-- Zoom level -->
+          <div class="zoom-level" id="zoomLevel" style="display: none;" aria-live="polite">100%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="顏色資訊面板">
+      <!-- Picked Color -->
+      <div class="card" id="colorCard">
+        <h2 class="card-title">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          選取的顏色
+        </h2>
+        <div class="color-preview" id="colorPreview">
+          <div class="color-swatch" id="colorSwatch" role="img" aria-label="選取的顏色預覽"></div>
+          <span class="placeholder" id="colorPlaceholder">點擊圖片選取顏色</span>
+        </div>
+        <div class="color-codes">
+          <div class="code-row" data-copy="hex" title="點擊複製 HEX" tabindex="0" role="button" aria-label="複製 HEX 顏色代碼">
+            <span class="code-label">HEX</span>
+            <span class="code-value" id="hexValue">—</span>
+            <button class="copy-btn" data-copy="hex" aria-label="複製 HEX 顏色代碼">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="code-row" data-copy="rgb" title="點擊複製 RGB" tabindex="0" role="button" aria-label="複製 RGB 顏色代碼">
+            <span class="code-label">RGB</span>
+            <span class="code-value" id="rgbValue">—</span>
+            <button class="copy-btn" data-copy="rgb" aria-label="複製 RGB 顏色代碼">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+          <div class="code-row" data-copy="hsl" title="點擊複製 HSL" tabindex="0" role="button" aria-label="複製 HSL 顏色代碼">
+            <span class="code-label">HSL</span>
+            <span class="code-value" id="hslValue">—</span>
+            <button class="copy-btn" data-copy="hsl" aria-label="複製 HSL 顏色代碼">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Palette / History -->
+      <div class="card">
+        <div class="palette-header">
+          <h2 class="card-title" style="margin-bottom:0">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            顏色歷史
+          </h2>
+          <span class="palette-count" id="paletteCount">0 種顏色</span>
+        </div>
+        <div class="palette-grid" id="paletteGrid">
+          <span class="palette-empty">點擊圖片來收集顏色</span>
+        </div>
+        <button class="clear-btn" id="clearPalette" type="button">清除全部</button>
+      </div>
+    </aside>
+  </main>
+
+  <!-- ============================================
+       CONTENT SECTIONS (SEO)
+       ============================================ -->
+  <div class="content-wrapper">
+
+    <!-- Features -->
+    <section aria-labelledby="features-title">
+      <div class="section-header">
+        <span class="section-badge">為什麼選擇我們</span>
+        <h2 class="section-title" id="features-title">為什麼選擇 Get Color Code？</h2>
+        <p class="section-desc">簡單、快速、隱私友善的線上圖片取色工具</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>即時取色</h3>
+          <p>點擊圖片任意位置，毫秒內顯示 HEX、RGB、HSL 三種顏色代碼，無需等待。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>隱私安全保障</h3>
+          <p>所有圖片處理均在您的瀏覽器本機完成，圖片絕不會被上傳到任何伺服器。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>放大鏡精準取色</h3>
+          <p>內建 3 倍放大鏡與十字準星，即使是圖片中最小的像素也能精準選取顏色。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          <h3>一鍵複製代碼</h3>
+          <p>點擊任一顏色格式即可複製到剪貼簿，直接貼到您的設計軟體或程式碼中。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3>多種上傳方式</h3>
+          <p>支援拖曳上傳、點擊選擇檔案，甚至可以直接 Ctrl+V 貼上剪貼簿中的圖片。</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <h3>完全免費</h3>
+          <p>無需註冊、無需付費。隨時隨地開啟瀏覽器即可使用，無任何限制。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- How to Use -->
+    <section class="howto-card" aria-labelledby="howto-title">
+      <div class="section-header">
+        <span class="section-badge">使用指南</span>
+        <h2 id="howto-title">如何使用 Get Color Code？</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="step-number" aria-hidden="true">1</span>
+          <div class="step-content">
+            <h4>上傳圖片</h4>
+            <p>將圖片拖曳到上傳區域，或點擊「選擇圖片」按鈕。也可以直接 Ctrl+V 貼上剪貼簿中的圖片。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number" aria-hidden="true">2</span>
+          <div class="step-content">
+            <h4>點擊取色</h4>
+            <p>在圖片上移動滑鼠，放大鏡會幫助您精確定位。點擊想要擷取的顏色位置。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number" aria-hidden="true">3</span>
+          <div class="step-content">
+            <h4>複製顏色代碼</h4>
+            <p>右側面板會顯示 HEX、RGB、HSL 三種格式。點擊任一格式即可複製到剪貼簿。</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-number" aria-hidden="true">4</span>
+          <div class="step-content">
+            <h4>管理顏色歷史</h4>
+            <p>所有選取的顏色會自動記錄在歷史面板中，方便您隨時回顧與比較不同顏色。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-card" aria-labelledby="faq-title">
+      <div class="section-header">
+        <span class="section-badge">常見問題</span>
+        <h2 id="faq-title">常見問題</h2>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span>上傳的圖片會被上傳到伺服器嗎？</span>
+          <span class="faq-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+        <div class="faq-answer">不會。Get Color Code 的所有圖片處理都在您的瀏覽器本地端完成，圖片不會被上傳到任何伺服器。我們非常重視您的隱私，這也是為什麼我們選擇完全在客戶端處理圖片。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span>支援哪些圖片格式？</span>
+          <span class="faq-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+        <div class="faq-answer">支援 JPG、PNG、WebP、GIF、SVG 等常見圖片格式。您也可以直接從剪貼簿貼上圖片（使用 Ctrl+V 或 Cmd+V 快捷鍵）。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span>可以同時看到 HEX、RGB、HSL 三種格式嗎？</span>
+          <span class="faq-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+        <div class="faq-answer">可以。點擊圖片後，右側面板會同時顯示 HEX（如 #FF6B6B）、RGB（如 rgb(255, 107, 107)）和 HSL（如 hsl(0, 100%, 71%)）三種顏色格式。點擊任一格式即可一鍵複製到剪貼簿。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span>可以儲存多個取樣的顏色嗎？</span>
+          <span class="faq-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+        <div class="faq-answer">可以。每次點擊圖片取色時，顏色會自動儲存到右側的「顏色歷史」面板中。您可以隨時點擊歷史顏色來回顧之前的取色結果，也可以一鍵清除全部記錄。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+          <span>這個工具真的完全免費嗎？</span>
+          <span class="faq-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </div>
+        <div class="faq-answer">是的，Get Color Code 完全免費使用，無需註冊帳號，沒有任何隱藏費用。我們希望提供一個簡單好用的工具，幫助設計師、開發者和所有需要取色的人。</div>
+      </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="usecase-card" aria-labelledby="usecase-title">
+      <div class="section-header">
+        <span class="section-badge">適用場景</span>
+        <h2 id="usecase-title">適用場景</h2>
+      </div>
+      <div class="usecase-grid">
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> 網頁設計配色</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> UI/UX 設計</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> 品牌標誌色彩分析</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> 攝影後期調色</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> 時尚服裝配色參考</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> 室內設計色彩規劃</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> 前端開發 CSS 配色</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg> 簡報與圖表配色</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg> 遊戲美術色彩參考</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> 印刷設計色彩確認</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> App 行動應用設計</div>
+        <div class="usecase-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> 調色盤靈感收集</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <p>&copy; 2026 <strong>Get Color Code</strong> — 免費線上圖片取色工具</p>
+    <p>HEX 顏色代碼 · RGB 顏色代碼 · HSL 顏色代碼 · 圖片色彩擷取 · Color Picker</p>
+    <p>所有圖片處理均在您的瀏覽器本機完成，我們不會儲存或上傳您的任何圖片。</p>
+    <p class="footer-privacy"><a href="https://getcolorcode-privacypolicy.web.app" target="_blank" rel="noopener noreferrer">Privacy Policy</a></p>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <!-- ─── JavaScript ───────────────────────────── -->
+  <script src="script.js" defer></script>
+
+</body>
+</html>
