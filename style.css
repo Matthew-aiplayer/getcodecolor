@@ -1331,6 +1331,175 @@ body {
 [data-theme="dark"] .footer-privacy a {
   color: #a78bfa;
 }
+
+/* ─── Guide / Tips / Reference Cards ─────── */
+.guide-card,
+.tips-card,
+.reference-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--card-border);
+  padding: 36px 32px;
+  margin-bottom: 56px;
+}
+
+.guide-article {
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+}
+
+.guide-article:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.guide-article h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
+}
+
+.guide-article p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.guide-article p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-article ul {
+  margin: 10px 0 14px;
+  padding-left: 20px;
+}
+
+.guide-article ul li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.guide-article code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+.guide-article strong {
+  color: var(--text);
+}
+
+/* ─── Color Reference Table ──────────────── */
+.reference-content {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.reference-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.reference-content p {
+  margin-bottom: 14px;
+}
+
+.color-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin: 16px 0;
+}
+
+.color-table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 10px 14px;
+  align-items: center;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 13px;
+}
+
+.color-table-row:last-child {
+  border-bottom: none;
+}
+
+.color-table-row.header {
+  background: var(--code-bg);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-tertiary);
+}
+
+.color-table-row code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--accent);
+}
+
+.color-name-ind {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+/* Responsive table */
+@media (max-width: 640px) {
+  .color-table-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  
+  .color-table-row.header {
+    display: none;
+  }
+  
+  .guide-card,
+  .tips-card,
+  .reference-card {
+    padding: 24px 18px;
+    margin-bottom: 40px;
+  }
+  
+  .guide-article h3 {
+    font-size: 16px;
+  }
+  
+  .guide-article p {
+    font-size: 13px;
+  }
+}
 /* ─── Toast ─────────────────────────────── */
 .toast {
   position: fixed;
